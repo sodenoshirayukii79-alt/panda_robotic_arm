@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- 是否生成红色测试方块 -->
+  <arg name="spawn_target" default="true"/>
+
+  <!-- 1. 启动 Gazebo、Panda 和 MoveIt -->
+  <include file="$(find panda_moveit_config)/launch/demo_gazebo.launch"/>
+
+  <!-- 2. 启动各个应用模块 -->
+  <include file="$(find panda_application)/launch/camera.launch"/>
+
+  <group if="$(arg spawn_target)">
+    <include file="$(find panda_application)/launch/target_cube.launch"/>
+  </group>
+
+  <include file="$(find panda_application)/launch/motion.launch"/>
+</launch>

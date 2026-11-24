@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- 视觉检测参数 -->
+  <arg name="image_topic" default="/panda_camera/image_raw"/>
+  <arg name="min_area" default="200.0"/>
+
+  <!-- 1. 启动红色目标检测 -->
+  <include file="$(find panda_vision)/launch/vision.launch">
+    <arg name="image_topic" value="$(arg image_topic)"/>
+    <arg name="min_area" value="$(arg min_area)"/>
+  </include>
+
+  <!-- 2. 启动像素坐标到世界坐标的转换 -->
+  <include file="$(find panda_vision)/launch/pixel_to_world.launch"/>
+
+</launch>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="image_topic" default="/panda_camera/image_raw"/>
+  <arg name="min_area" default="200.0"/>
+
+  <node pkg="panda_vision"
+        type="red_target_detector.py"
+        name="red_target_detector"
+        output="screen">
+
+    <param name="image_topic" value="$(arg image_topic)"/>
+    <param name="min_area" value="$(arg min_area)"/>
+
+  </node>
+</launch>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="panda_camera">
+    <static>true</static>
+
+    <link name="panda_camera_link">
+      <sensor name="panda_camera_sensor" type="camera">
+        <!-- 摄像头朝下 -->
+        <pose>0 0 0 0 1.5708 0</pose>
+
+        <always_on>true</always_on>
+        <update_rate>15</update_rate>
+        <visualize>true</visualize>
+
+        <camera>
+          <horizontal_fov>1.047</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>5.0</far>
+          </clip>
+        </camera>
+
+        <plugin name="camera_controller"
+                filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>15.0</updateRate>
+          <cameraName>panda_camera</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>panda_camera_link</frameName>
+        </plugin>
+      </sensor>
+    </link>
+  </model>
+</sdf>

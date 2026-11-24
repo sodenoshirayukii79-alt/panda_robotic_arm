@@ -1,0 +1,32 @@
+# ROS / Catkin build artifacts
+/build/
+/devel/
+/install/
+/logs/
+/.catkin_tools/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# ROS runtime data
+*.bag
+*.bag.active
+*.log
+*.db
+
+# IDE and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Local secrets and environment
+.env
+.env.*
+!.env.example
+
+# Catkin-generated workspace entry point
+/src/CMakeLists.txt

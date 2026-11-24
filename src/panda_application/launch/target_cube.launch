@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="x" default="0.45"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.025"/>
+
+  <node pkg="gazebo_ros"
+        type="spawn_model"
+        name="spawn_target_cube"
+        args="-sdf
+              -file $(find panda_application)/models/target_cube.sdf
+              -model target_cube
+              -x $(arg x)
+              -y $(arg y)
+              -z $(arg z)"
+        output="screen"/>
+</launch>

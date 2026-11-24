@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="panda_application"
+        type="panda_motion_node"
+        name="panda_motion_node"
+        output="screen"/>
+</launch>
